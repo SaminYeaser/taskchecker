@@ -4,6 +4,8 @@ import 'package:taskchecker/constants.dart';
 import 'package:get/get.dart';
 import 'package:taskchecker/data/database.dart';
 import 'package:taskchecker/views/category_list_details.dart';
+import 'package:taskchecker/views/works/work1.dart';
+import 'package:taskchecker/views/works/work2.dart';
 import '../controllers/send_mail_controller.dart';
 import '../models/work_listings.dart';
 
@@ -44,12 +46,32 @@ class _HomePageState extends State<HomePage> {
           itemBuilder: (context,index) {
             return InkWell(
               onTap: (){
-                Get.to(
-                    CategoryListDetailsPage(
+                // Get.to(
+                //   CategoryListDetailsPage(
+                //     categoryName:  workList[index],
+                //     // taskList:  db.taskList,
+                //   ),
+                // );
+                if(workList[index] == 'CCTV Work Checklist'){
+                  // db.loadData();
+                  // db.allWork = db.work1;
+                  Get.to(
+                    Work1(
                       categoryName:  workList[index],
-                      taskList: workList[index] == 'CCTV Work Checklist' ? cctvWorkListing :  onSiteTechnicianCheckList,
+                      // taskList:  db.taskList,
                     ),
-                );
+                  );
+                }else if(workList[index] == 'On Site Technician CheckList'){
+                  // db.loadData();
+                  // db.allWork = db.work2;
+                  Get.to(
+                    Work2(
+                      categoryName:  workList[index],
+                      // taskList:  db.taskList,
+                    ),
+                  );
+                }
+
               },
               child: SizedBox(
                 width: fullWidth,

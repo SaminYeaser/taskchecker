@@ -4,67 +4,54 @@ import 'package:get/get.dart';
 
 class CheckListDatabase{
 
-  List workList = [
-    'CCTV Work Checklist',
-    'On Site Technician CheckList'
-  ];
+  List work1 = [];
+  List work2 = [];
+  List work3 = [];
+  List work4 = [];
 
-  final cctvWorkListing = [
-    'Camera lens focused and adjusted properly',
-    'Camera not been knocked off',
-    'Property perimeter clearly displayed',
-    'Camera lens free from dust and marks',
-    'Motion detection sensors working',
-    'Camera functions such as zoom and pan work correctly',
-    'App installed and tested',
-    'Cameras securely attached to the wall',
-    'There is enough free space on the hard disk',
-    'Unnecessary recordings been deleted from the camera',
-    'The cables free of any wear or exposed wires',
-    'Cables connected correctly',
-    'Sound and image transmission clear and distortion-free',
-    'Monitors showing clear picture, Brightness and contrast settings correctly adjusted',
-    'Switches and individual equipment fully functioning',
-    'All monitors and equipment free from dust and grime',
-    'Cables leading from the equipment in good condition, No weak connections',
-    'Time and date stamp correctly set',
-    'Power connections and AC plugs not loose and in good working condition'
-  ].obs;
-
-  final onSiteTechnicianCheckList = [
-    'Internet type and speed',
-    'Router type and model',
-    'Switch type and model',
-    'Cabling for Voice and Data',
-    'Wi-Fi with Guest network or extend Wi-Fi network',
-    'Backup Strategy and Restoration (NAS)',
-    'SSDs for computers',
-    'RAM for computers',
-    'Anti-virus',
-    'Remote access to network',
-    'VOIP in office or at home',
-    'Set up employees to work from home',
-    'Need UPS for all networking equipment',
-    'Need emails for domain',
-    'Need a website or website updated',
-    'Server administration',
-    'Network administration',
-    'Ongoing maintenance (contract)'
-  ].obs;
-
+  // List allWork = [];
 
   final _mybox = Hive.box('checklist');
 
 
   void createInitalData(){
-    workList = workList;
+    // taskList = workList;
   }
 
-  void loadData(){
-    workList = _mybox.get('TODOLIST');
+  void loadDataWork1(){
+    work1 = _mybox.get('WORK1');
   }
 
-  void updateDataBase(){
-    _mybox.put('TODOLIST', workList);
+  void loadDataWork2(){
+    work2 = _mybox.get('WORK2');
+  }
+  void loadDataWork3(){
+    work3 = _mybox.get('WORK3');
+  }
+  void loadDataWork4(){
+    work4 = _mybox.get('WORK4');
+  }
+
+
+
+
+  void updateDataBaseForWork1(){
+    print('database1 updated');
+    _mybox.put('WORK1', work1);
+  }
+
+  void updateDataBaseForWork2(){
+    print('database2 updated');
+    _mybox.put('WORK2', work2);
+  }
+
+  void updateDataBaseForWork3(){
+    print('database3 updated');
+    _mybox.put('WORK3', work3);
+  }
+
+  void updateDataBaseForWork4(){
+    print('database4 updated');
+    _mybox.put('WORK4', work4);
   }
 }
