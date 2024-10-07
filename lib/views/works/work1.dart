@@ -5,6 +5,8 @@ import 'package:taskchecker/constants.dart';
 
 import '../../data/database.dart';
 import '../../models/work_listings.dart';
+import '../widgets/commentTxtField_and_send.dart';
+import '../widgets/title_mail_textfield.dart';
 
 
 class Work1 extends StatefulWidget {
@@ -25,8 +27,33 @@ class _Work1State extends State<Work1> {
 
   @override
   void initState() {
-    if(_mybox.get('WORK1') == null){
-      db.work1 = cctvWorkListing;
+    print('calling : ${_mybox.get('WORK1')}');
+    if(_mybox.get('WORK1') == null || _mybox.get('WORK1').isEmpty){
+      // cctvWorkListing.clear();
+      db.work1 = [
+        {'task': 'Camera lens focused and adjusted properly','checked': false},
+        {'task': 'Camera not been knocked off','checked': false},
+        {'task':'Property perimeter clearly displayed','checked': false},
+        {'task':'Camera lens free from dust and marks','checked': false},
+        {'task':'Motion detection sensors working','checked': false},
+        {'task':'Camera functions such as zoom and pan work correctly','checked': false},
+        {'task':'App installed and tested','checked': false},
+        {'task':'Cameras securely attached to the wall','checked': false},
+        {'task':'There is enough free space on the hard disk','checked': false},
+        {'task':'Unnecessary recordings been deleted from the camera','checked': false},
+        {'task':'The cables free of any wear or exposed wires','checked': false},
+        {'task':'Cables connected correctly','checked': false},
+        {'task':'Sound and image transmission clear and distortion-free','checked': false},
+        {
+          'task':'Monitors showing clear picture, Brightness and contrast settings correctly adjusted','checked': false
+        },
+        {'task':'Switches and individual equipment fully functioning','checked': false},
+        {'task':'All monitors and equipment free from dust and grime','checked': false},
+        {'task':'Cables leading from the equipment in good condition, No weak connections','checked': false},
+        {'task':'Time and date stamp correctly set','checked': false},
+        {'task':'Power connections and AC plugs not loose and in good working condition','checked': false}
+      ];
+      print('calling from the if condi : ${db.work1}');
     }else{
       db.loadDataWork1();
       // print('length of data ${_mybox.length}');
@@ -134,6 +161,10 @@ class _Work1State extends State<Work1> {
                       ),
                     );
                   },
+                ),
+                TextFieldsAndComments(
+                  'CCTV Work Checklist',
+                'WORK1'
                 )
               ],
             ),
