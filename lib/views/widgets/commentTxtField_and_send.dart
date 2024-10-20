@@ -129,7 +129,8 @@ class _TextFieldsAndCommentsState extends State<TextFieldsAndComments> {
                   workName: widget.workName,
                 email: _email.text,
                 comments: _comments.text,
-                checkLists: [_mybox.get('WORK1')]
+                checkLists: _mybox.get('WORK1'),
+                companyName: _title.text
               ).then((value) async{
                 _comments.clear();
                 _email.clear();
